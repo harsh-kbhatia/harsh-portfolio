@@ -23,3 +23,8 @@
 - Changing routing structure or adding new pages not already in the sitemap (Home, Work, About, Contact)
 - Touching git config, `.gitignore`, or making commits on my behalf
 - Anything related to deployment/Netlify config
+
+## Rules learned from FE drill (round 1 vs round 2 comparison)
+- Forms with validation must ship with tests. Any component with a `validate()` function or field-level error state needs a corresponding `.test.tsx` covering at least: empty submit, one invalid-format case per field, and successful submit.
+- Validation regexes must be checked against real-world input examples, not just the stated type. E.g. "phone number" needs a test with spaces/hyphens, not just digits — specs that only state a data type (int, string) miss how humans actually format that data.
+- Split commits by concern when a task touches both tooling and feature code — e.g. installing/wiring a test runner is its own commit, separate from the feature it enables tests for.
